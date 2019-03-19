@@ -74,30 +74,30 @@ server.delete('/api/posts/:id', (req, res) => {
     })
 });
 
-// // UPDATE API/USERS/:ID
-// server.put('/api/users/:id', (req, res) => {
-//     const { id } = req.params;
-//     const user = req.body;
-//     const { name, bio } = req.body;
-//     db.update(id, user)
-//     .then((count) => {
-//         if (count) {
-//             db.findById(id).then(user => {
-//                 if (name, bio) {
-//                     res.status(200).json(user);
-//                 } else {
-//                     res.status(400).json({ errorMessage: "Please provide name and bio for the user." });
-//                 }
-//             })
-//         } else {
-//             res.status(404).json({ message: "The user with the specified ID does not exist." });
-//         }
-//     })
-//     .catch(err => {
-//         res.status(500)
-//         .json({ error: "The user could not be removed" });
-//     })
-// });
+// UPDATE API/POSTS/:ID
+server.put('/api/posts/:id', (req, res) => {
+    const { id } = req.params;
+    const post = req.body;
+    const { title, contents } = req.body;
+    db.update(id, post)
+    .then((count) => {
+        if (count) {
+            db.findById(id).then(post => {
+                if (title, contents) {
+                    res.status(200).json(post);
+                } else {
+                    res.status(400).json({ errorMessage: "Please provide title and contents for the post." });
+                }
+            })
+        } else {
+            res.status(404).json({ message: "The post with the specified ID does not exist." });
+        }
+    })
+    .catch(err => {
+        res.status(500)
+        .json({ error: "The post information could not be modified." });
+    })
+});
 
 // SERVER LISTENING
 
