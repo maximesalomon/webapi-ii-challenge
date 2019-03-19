@@ -57,22 +57,22 @@ server.get('/api/posts/:id', (req, res) => {
     })
 });
 
-// // DELETE API/USERS/:ID
-// server.delete('/api/users/:id', (req, res) => {
-//     const { id } = req.params;
-//     db.remove(id)
-//     .then((count) => {
-//         if (count) {
-//             res.status(200).json({message: "Successfully deleted"});
-//         } else {
-//             res.status(404).json({ message: "The user with the specified ID does not exist." });
-//         }
-//     })
-//     .catch(err => {
-//         res.status(500)
-//         .json({ error: "The user information could not be modified." });
-//     })
-// });
+// DELETE API/USERS/:ID
+server.delete('/api/posts/:id', (req, res) => {
+    const { id } = req.params;
+    db.remove(id)
+    .then((count) => {
+        if (count) {
+            res.status(200).json({message: "Successfully deleted"});
+        } else {
+            res.status(404).json({ message: "The post with the specified ID does not exist." });
+        }
+    })
+    .catch(err => {
+        res.status(500)
+        .json({ error: "The post could not be removed" });
+    })
+});
 
 // // UPDATE API/USERS/:ID
 // server.put('/api/users/:id', (req, res) => {
