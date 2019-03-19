@@ -28,17 +28,17 @@ server.post('/api/posts', (req, res) => {
     })
 });
 
-// // GET API/USERS
-// server.get('/api/users', (req, res) => {
-//     db.find()
-//     .then((users) => {
-//         res.status(200).json(users);
-//     })
-//     .catch(err => {
-//         res.status(500)
-//         .json({ error: "The users information could not be retrieved." });
-//     })
-// });
+// GET API/POSTS
+server.get('/api/posts', (req, res) => {
+    db.find()
+    .then((posts) => {
+        res.status(200).json(posts);
+    })
+    .catch(err => {
+        res.status(500)
+        .json({ error: "The posts information could not be retrieved." });
+    })
+});
 
 // // GET API/USERS/:ID
 // server.get('/api/users/:id', (req, res) => {
